@@ -24,6 +24,11 @@ public class UserService {
         return user.orElseThrow(()-> new ObjectNotFoundException("Usuário não encontrado"));
     }
 
+    public void delete(String id){
+        repository.findById(id);
+        repository.deleteById(id);
+    }
+
     public User insert(User user){
         return repository.insert(user);
     }
