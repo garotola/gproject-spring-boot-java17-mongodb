@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.garotinho.gprojectmongo.domain.Post;
 import com.garotinho.gprojectmongo.domain.User;
+import com.garotinho.gprojectmongo.dto.AuthorDTO;
 import com.garotinho.gprojectmongo.repositories.PostRepository;
 import com.garotinho.gprojectmongo.repositories.UserRepository;
 
@@ -31,10 +32,11 @@ public class TestConfig implements CommandLineRunner{
         User u2 = new User(null, "Rafael", "@gmail.com");
         User u3 = new User(null, "Bia", "@gmail.com");       
 
-        Post p1 = new Post(null, dateFormat.parse("21/03/2018"), "Partiu Viagem", "Vou viajar para São Paulo", u2);
-        Post p2 = new Post(null, dateFormat.parse("23/03/2018"), "Bom dia", "Acordei Feliz Hoje", u2);
-
         userRepository.saveAll(Arrays.asList(u1,u2,u3));
+
+        Post p1 = new Post(null, dateFormat.parse("21/03/2018"), "Partiu Viagem", "Vou viajar para São Paulo", new AuthorDTO(u2));
+        Post p2 = new Post(null, dateFormat.parse("23/03/2018"), "Bom dia", "Acordei Feliz Hoje", new AuthorDTO(u2));
+
         postRepository.saveAll(Arrays.asList(p1,p2));
 
     }
