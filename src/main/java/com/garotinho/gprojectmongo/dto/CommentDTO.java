@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-
 public class CommentDTO implements Serializable{
     private String text;
     private Date date;
@@ -17,5 +16,28 @@ public class CommentDTO implements Serializable{
         this.date = date;
         this.author = author;
     }
-    
+
+    public AuthorDTO getAuthor() {
+        return author;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setAuthor(AuthorDTO author) {
+        this.author = author;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }    
 }
